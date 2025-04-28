@@ -24,6 +24,25 @@ typedef struct _custom_labels_ls custom_labels_labelset_t;
  * <div rustbindgen hide></div>
  */
 extern __thread custom_labels_labelset_t *custom_labels_current_set;
+extern unsigned char* process_storage;
+
+
+/**
+ * Set the process-level data.
+ *
+ * We want to keep this somewhat generic. For simplicity, for the time being,
+ * the tracer hands the library the bytes directly.
+ *
+ * We plan on exploring a map for process storage.
+ */
+void proc_storage_set(const unsigned char* data, size_t size);
+
+/**
+ * Free the allocated process storage buffer.
+ *
+ * This should be called when we exit the process.
+ */
+void proc_storage_free(void);
 
 /**
  *

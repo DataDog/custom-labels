@@ -44,6 +44,19 @@ __thread custom_labels_labelset_t *custom_labels_current_set = NULL;
 #define cur_storage (custom_labels_current_set->storage)
 #define cur_capacity (custom_labels_current_set->capacity)
 
+__attribute__((retain))
+unsigned char* process_storage = NULL;
+
+void proc_storage_set(const unsigned char* data, size_t size){
+    process_storage = malloc(size);
+    memcpy((void*)process_storage, data, size);
+}
+
+void proc_storage_free(void){
+    free(process_storage);
+    process_storage = NULL;
+}
+
 static bool eq(custom_labels_string_t l, custom_labels_string_t r) {
         return l.len == r.len &&
                 !memcmp(l.buf, r.buf, l.len);
