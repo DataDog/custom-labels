@@ -17,3 +17,11 @@ $(TARGET): $(SRCS)
 
 clean:
 	rm -f $(TARGET)
+
+PREFIX ?= /usr/local
+
+install: $(TARGET)
+	install -d $(PREFIX)/lib
+	install -m 0755 $(TARGET) $(PREFIX)/lib/
+	mkdir -p $(PREFIX)/include/customlabels
+	cp src/*.h $(PREFIX)/include/customlabels
