@@ -1,0 +1,9 @@
+cc_library(
+    name = "customlabels",
+    srcs = [
+        "src/customlabels.c",
+        "src/customlabels.h"
+    ],
+    includes = ["src/"],
+    visibility = ["//visibility:public"],
+)
