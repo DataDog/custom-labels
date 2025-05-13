@@ -1,4 +1,4 @@
-CC = gcc
+CC ?= gcc
 TARGET = libcustomlabels.so
 SRCS = src/customlabels.c
 
