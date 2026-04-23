@@ -16,7 +16,7 @@ bindgen = { version = "0.70", default-features = false, features = ["runtime"] }
 cc = "1.0"
 
 [dev-dependencies]
-rand = "0.8.5"
+rand = "0.8.6"
 
 [dependencies]
 libc = "0.2"
